@@ -2,229 +2,265 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, ExternalLink, Download, FileText } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { BookOpen, ExternalLink, Activity, Wind } from 'lucide-react';
 
 const References = () => {
-  const references = [
+  const asthmaReferences = [
     {
-      id: 1,
-      category: "ACT - Asthma Control Test",
-      title: "Validation of the Asthma Control Test in a general population sample",
-      authors: "Schatz M, Sorkness CA, Li JT, et al.",
-      journal: "American Journal of Respiratory and Critical Care Medicine",
-      year: "2006",
-      volume: "173(9)",
-      pages: "1091-1097",
-      doi: "10.1164/rccm.200512-1922OC",
-      description: "Estudo original de validação do teste ACT em população geral, demonstrando sua eficácia na avaliação do controle da asma."
+      title: "Asthma Control Test (ACT)",
+      authors: "Nathan RA, Sorkness CA, Kosinski M, et al.",
+      journal: "J Allergy Clin Immunol",
+      year: "2004",
+      volume: "113(1)",
+      pages: "59-65",
+      doi: "10.1016/j.jaci.2003.09.008",
+      description: "Desenvolvimento e validação do Teste de Controle da Asma"
     },
     {
-      id: 2,
-      category: "ACT - Versão Brasileira",
-      title: "Validação do Teste de Controle da Asma em português do Brasil",
+      title: "Validation of the Brazilian-Portuguese version of the Asthma Control Test",
       authors: "Roxo JPF, Ponte EV, Ramos DCB, et al.",
-      journal: "Jornal Brasileiro de Pneumologia",
+      journal: "J Bras Pneumol",
       year: "2010",
       volume: "36(2)",
       pages: "159-166",
       doi: "10.1590/S1806-37132010000200002",
-      description: "Validação da versão brasileira do ACT, confirmando sua aplicabilidade na população brasileira."
+      description: "Validação da versão brasileira do ACT"
     },
     {
-      id: 3,
-      category: "ACQ - Asthma Control Questionnaire",
-      title: "Development and validation of a questionnaire to measure asthma control",
+      title: "Asthma Control Questionnaire (ACQ)",
       authors: "Juniper EF, O'Byrne PM, Guyatt GH, et al.",
-      journal: "European Respiratory Journal",
+      journal: "Eur Respir J",
       year: "1999",
       volume: "14(4)",
       pages: "902-907",
       doi: "10.1034/j.1399-3003.1999.14d29.x",
-      description: "Desenvolvimento original do ACQ, estabelecendo os fundamentos para avaliação objetiva do controle da asma."
+      description: "Desenvolvimento do Questionário de Controle da Asma"
     },
     {
-      id: 4,
-      category: "ACQ - Versão Brasileira",
-      title: "Validação do Questionário de Controle da Asma para uso no Brasil",
-      authors: "Leite M, Ponte EV, Petroni J, et al.",
-      journal: "Jornal Brasileiro de Pneumologia",
-      year: "2008",
-      volume: "34(10)",
-      pages: "756-763",
-      doi: "10.1590/S1806-37132008001000002",
-      description: "Adaptação transcultural e validação do ACQ para a população brasileira."
-    },
-    {
-      id: 5,
-      category: "AQLQ - Asthma Quality of Life Questionnaire",
-      title: "Measuring quality of life in asthma",
-      authors: "Juniper EF, Guyatt GH, Epstein RS, et al.",
-      journal: "American Review of Respiratory Disease",
-      year: "1992",
-      volume: "146(4)",
-      pages: "888-894",
-      doi: "10.1164/ajrccm/146.4.888",
-      description: "Estudo seminal sobre o desenvolvimento do AQLQ para avaliação da qualidade de vida em pacientes com asma."
-    },
-    {
-      id: 6,
-      category: "AQLQ-S - Versão Simplificada",
-      title: "Development and validation of the standardised asthma quality of life questionnaire",
+      title: "Validation of the Brazilian Portuguese version of the Asthma Quality of Life Questionnaire",
       authors: "Juniper EF, Buist AS, Cox FM, et al.",
-      journal: "European Respiratory Journal",
-      year: "1999",
-      volume: "14(1)",
-      pages: "32-38",
-      doi: "10.1034/j.1399-3003.1999.14a08.x",
-      description: "Desenvolvimento da versão padronizada do AQLQ, facilitando sua aplicação clínica."
-    },
-    {
-      id: 7,
-      category: "AQLQ - Versão Brasileira",
-      title: "Validação do Questionário de Qualidade de Vida na Asma (AQLQ) para uso no Brasil",
-      authors: "Camelier AA, Rosa FW, Salim M, et al.",
-      journal: "Jornal de Pneumologia",
-      year: "2007",
-      volume: "33(2)",
-      pages: "61-68",
-      doi: "10.1590/S0102-35862007000200003",
-      description: "Processo de validação cultural e linguística do AQLQ para a população brasileira."
-    },
-    {
-      id: 8,
-      category: "Diretrizes GINA",
-      title: "Global Strategy for Asthma Management and Prevention",
-      authors: "Global Initiative for Asthma (GINA)",
-      journal: "GINA Report",
-      year: "2023",
-      volume: "Current",
-      pages: "1-273",
-      doi: "Available at: www.ginasthma.org",
-      description: "Diretrizes internacionais mais atuais para manejo e prevenção da asma, incluindo recomendações sobre questionários de controle."
-    },
-    {
-      id: 9,
-      category: "Diretrizes Brasileiras",
-      title: "Diretrizes da Sociedade Brasileira de Pneumologia e Tisiologia para o Manejo da Asma",
-      authors: "Sociedade Brasileira de Pneumologia e Tisiologia",
-      journal: "Jornal Brasileiro de Pneumologia",
-      year: "2020",
-      volume: "46(1)",
-      pages: "e20190307",
-      doi: "10.36416/1806-3756/e20190307",
-      description: "Diretrizes nacionais brasileiras para manejo da asma, incluindo recomendações específicas para uso de questionários validados."
-    },
-    {
-      id: 10,
-      category: "Consenso Internacional",
-      title: "An international consensus on asthma control",
-      authors: "Reddel HK, Taylor DR, Bateman ED, et al.",
-      journal: "European Respiratory Journal",
-      year: "2009",
-      volume: "33(3)",
-      pages: "509-518",
-      doi: "10.1183/09031936.00873008",
-      description: "Consenso internacional sobre definição e avaliação do controle da asma, fundamental para interpretação dos questionários."
+      journal: "J Bras Pneumol",
+      year: "2006",
+      volume: "32(2)",
+      pages: "114-122",
+      doi: "10.1590/S1806-37132006000200005",
+      description: "Validação brasileira do AQLQ"
     }
   ];
 
-  const getCategoryColor = (category: string) => {
-    if (category.includes('ACT')) return 'bg-blue-100 text-blue-800';
-    if (category.includes('ACQ')) return 'bg-green-100 text-green-800';
-    if (category.includes('AQLQ')) return 'bg-purple-100 text-purple-800';
-    if (category.includes('GINA')) return 'bg-orange-100 text-orange-800';
-    if (category.includes('Brasileira')) return 'bg-yellow-100 text-yellow-800';
-    return 'bg-gray-100 text-gray-800';
-  };
+  const copdReferences = [
+    {
+      title: "Development and first validation of the COPD Assessment Test",
+      authors: "Jones PW, Harding G, Berry P, et al.",
+      journal: "Eur Respir J",
+      year: "2009",
+      volume: "34(3)",
+      pages: "648-654",
+      doi: "10.1183/09031936.00102509",
+      description: "Desenvolvimento e primeira validação do CAT"
+    },
+    {
+      title: "Validation of the Brazilian Portuguese version of the COPD Assessment Test",
+      authors: "Silva GPF, Morano MTAP, Viana CMS, et al.",
+      journal: "J Bras Pneumol",
+      year: "2013",
+      volume: "39(4)",
+      pages: "402-408",
+      doi: "10.1590/S1806-37132013000400002",
+      description: "Validação da versão brasileira do CAT"
+    },
+    {
+      title: "Standardisation of spirometry",
+      authors: "Miller MR, Hankinson J, Brusasco V, et al.",
+      journal: "Eur Respir J",
+      year: "2005",
+      volume: "26(2)",
+      pages: "319-338",
+      doi: "10.1183/09031936.05.00034805",
+      description: "Padronização da espirometria - inclui escala MRC"
+    },
+    {
+      title: "Dyspnoea measures in primary care",
+      authors: "Bestall JC, Paul EA, Garrod R, et al.",
+      journal: "Thorax",
+      year: "1999",
+      volume: "54(7)",
+      pages: "581-586",
+      doi: "10.1136/thx.54.7.581",
+      description: "Medidas de dispneia na atenção primária - validação MRC"
+    },
+    {
+      title: "Psychophysical bases of perceived exertion",
+      authors: "Borg GA",
+      journal: "Med Sci Sports Exerc",
+      year: "1982",
+      volume: "14(5)",
+      pages: "377-381",
+      doi: "10.1249/00005768-198205000-00012",
+      description: "Bases psicofísicas da escala de esforço percebido"
+    },
+    {
+      title: "Clinical application of Borg's ratings",
+      authors: "Borg G, Ljunggren G, Ceci R",
+      journal: "Scand J Work Environ Health",
+      year: "1985",
+      volume: "11 Suppl 4",
+      pages: "45-50",
+      description: "Aplicação clínica das escalas de BORG"
+    }
+  ];
 
-  const handleCopyReference = (reference: any) => {
-    const citation = `${reference.authors} ${reference.title}. ${reference.journal}. ${reference.year};${reference.volume}:${reference.pages}. DOI: ${reference.doi}`;
-    navigator.clipboard.writeText(citation);
-  };
+  const additionalCOPDTools = [
+    {
+      title: "St. George's Respiratory Questionnaire (SGRQ)",
+      description: "Questionário específico para avaliar qualidade de vida relacionada à saúde em doenças respiratórias",
+      indication: "Avaliação de qualidade de vida em DPOC"
+    },
+    {
+      title: "COPD Control Questionnaire (CCQ)",
+      description: "Questionário para avaliar controle clínico da DPOC",
+      indication: "Monitoramento do controle dos sintomas"
+    },
+    {
+      title: "Clinical COPD Questionnaire (CCQ)",
+      description: "Instrumento breve para avaliar status funcional em DPOC",
+      indication: "Avaliação funcional rápida"
+    },
+    {
+      title: "BODE Index",
+      description: "Índice multidimensional (IMC, Obstrução, Dispneia, Exercício)",
+      indication: "Avaliação prognóstica em DPOC"
+    },
+    {
+      title: "Teste de Caminhada de 6 Minutos (TC6M)",
+      description: "Teste de capacidade funcional submáxima",
+      indication: "Avaliação da capacidade de exercício"
+    },
+    {
+      title: "Escala de Fadiga de Chalder",
+      description: "Avaliação de fadiga em pacientes com doenças crônicas",
+      indication: "Avaliação complementar de fadiga"
+    }
+  ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <Card className="bg-white shadow-lg">
-        <CardHeader className="text-center">
-          <CardTitle className="flex items-center justify-center gap-2 text-2xl">
+    <div className="space-y-6">
+      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
             <BookOpen className="h-6 w-6 text-blue-600" />
             Referências Bibliográficas
           </CardTitle>
-          <p className="text-gray-600 mt-2">
-            Literatura científica que fundamenta os questionários de asma validados em português
+          <p className="text-gray-600">
+            Referências científicas dos questionários e escalas validados implementados no sistema
           </p>
         </CardHeader>
-        <CardContent>
-          <div className="grid gap-6">
-            {references.map((ref) => (
-              <Card key={ref.id} className="border-l-4 border-l-blue-500 bg-gray-50">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <Badge className={getCategoryColor(ref.category)}>
-                      {ref.category}
-                    </Badge>
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => handleCopyReference(ref)}
-                        className="h-8 w-8 p-0"
-                      >
-                        <FileText className="h-4 w-4" />
-                      </Button>
-                      {ref.doi.includes('http') && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => window.open(ref.doi, '_blank')}
-                          className="h-8 w-8 p-0"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 leading-tight">
-                    {ref.title}
-                  </h3>
-                </CardHeader>
-                <CardContent className="pt-0 space-y-3">
-                  <div className="text-sm text-gray-600">
-                    <p><strong>Autores:</strong> {ref.authors}</p>
-                    <p><strong>Periódico:</strong> {ref.journal}</p>
-                    <p><strong>Ano:</strong> {ref.year} | <strong>Volume:</strong> {ref.volume} | <strong>Páginas:</strong> {ref.pages}</p>
-                    <p><strong>DOI:</strong> {ref.doi}</p>
-                  </div>
-                  <p className="text-gray-700 text-sm bg-white p-3 rounded border-l-2 border-l-gray-300">
-                    {ref.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      </Card>
 
-          <div className="mt-8 bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
-              <Download className="h-5 w-5" />
-              Como Citar Este Aplicativo
-            </h3>
-            <div className="bg-white p-4 rounded border text-sm font-mono">
-              AsmaCheck - Questionários de Asma Brônquica. Aplicativo web para avaliação de controle e qualidade de vida em asma. Versão 1.0. 2024. Disponível em: [URL do aplicativo]
+      {/* Asthma References */}
+      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <Activity className="h-5 w-5 text-blue-600" />
+            Questionários de Asma Brônquica
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {asthmaReferences.map((ref, index) => (
+            <div key={index} className="border-l-4 border-blue-500 pl-4 space-y-2">
+              <h3 className="text-lg font-semibold text-gray-800">{ref.title}</h3>
+              <p className="text-sm text-gray-600">{ref.description}</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>Autores:</strong> {ref.authors}</p>
+                <p><strong>Periódico:</strong> {ref.journal}</p>
+                <p><strong>Ano:</strong> {ref.year} | <strong>Volume:</strong> {ref.volume} | <strong>Páginas:</strong> {ref.pages}</p>
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline">DOI: {ref.doi}</Badge>
+                  <a 
+                    href={`https://doi.org/${ref.doi}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    Acessar
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
+        </CardContent>
+      </Card>
 
-          <div className="mt-6 bg-yellow-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-yellow-800 mb-3">
-              Importante - Uso Clínico
-            </h3>
-            <ul className="text-sm text-yellow-700 space-y-2">
-              <li>• Os questionários são ferramentas auxiliares na avaliação clínica da asma</li>
-              <li>• Não substituem a avaliação médica completa e o julgamento clínico</li>
-              <li>• Devem ser interpretados no contexto clínico de cada paciente</li>
-              <li>• Recomenda-se aplicação periódica para monitoramento longitudinal</li>
-              <li>• Todos os questionários foram validados para população adulta brasileira</li>
-            </ul>
+      {/* COPD References */}
+      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <Wind className="h-5 w-5 text-orange-600" />
+            Questionários e Escalas de DPOC
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {copdReferences.map((ref, index) => (
+            <div key={index} className="border-l-4 border-orange-500 pl-4 space-y-2">
+              <h3 className="text-lg font-semibold text-gray-800">{ref.title}</h3>
+              <p className="text-sm text-gray-600">{ref.description}</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>Autores:</strong> {ref.authors}</p>
+                <p><strong>Periódico:</strong> {ref.journal}</p>
+                <p><strong>Ano:</strong> {ref.year} | <strong>Volume:</strong> {ref.volume} | <strong>Páginas:</strong> {ref.pages}</p>
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline">DOI: {ref.doi}</Badge>
+                  <a 
+                    href={`https://doi.org/${ref.doi}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    Acessar
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+      {/* Additional COPD Tools */}
+      <Card className="bg-gradient-to-r from-green-50 to-blue-50 border-0 shadow-lg">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <BookOpen className="h-5 w-5 text-green-600" />
+            Outros Instrumentos de Avaliação em DPOC
+          </CardTitle>
+          <p className="text-gray-600">
+            Sugestões de outros questionários e escalas relevantes para avaliação completa em DPOC
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {additionalCOPDTools.map((tool, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{tool.title}</h3>
+              <p className="text-sm text-gray-600 mb-2">{tool.description}</p>
+              <Badge className="bg-green-100 text-green-800">
+                {tool.indication}
+              </Badge>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="bg-yellow-50 border-yellow-200 border-2">
+        <CardContent className="pt-6">
+          <div className="flex items-start gap-3">
+            <BookOpen className="h-5 w-5 text-yellow-600 mt-0.5" />
+            <div className="text-sm text-yellow-800">
+              <strong>Nota importante:</strong> Todos os questionários implementados neste sistema foram 
+              validados para a população brasileira e devem ser utilizados como ferramentas complementares 
+              à avaliação clínica. Os resultados devem sempre ser interpretados por profissionais de saúde 
+              qualificados, considerando o contexto clínico individual de cada paciente.
+            </div>
           </div>
         </CardContent>
       </Card>
