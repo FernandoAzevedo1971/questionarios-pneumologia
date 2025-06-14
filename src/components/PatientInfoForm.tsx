@@ -12,11 +12,13 @@ interface PatientData {
 interface PatientInfoFormProps {
   patientData: PatientData;
   onPatientDataChange: (data: PatientData) => void;
+  variant?: 'asthma' | 'copd';
 }
 
 const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
   patientData,
-  onPatientDataChange
+  onPatientDataChange,
+  variant = 'asthma'
 }) => {
   const handleChange = (field: keyof PatientData, value: string) => {
     onPatientDataChange({
@@ -25,11 +27,14 @@ const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
     });
   };
 
+  const colorClass = variant === 'copd' ? 'text-orange-600' : 'text-blue-600';
+  const focusClass = variant === 'copd' ? 'focus:ring-orange-500' : 'focus:ring-blue-500';
+
   return (
     <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <User className="h-5 w-5 text-blue-600" />
+        <CardTitle className={`flex items-center gap-2 ${colorClass}`}>
+          <User className="h-5 w-5" />
           Informações do Paciente
         </CardTitle>
       </CardHeader>
@@ -41,7 +46,7 @@ const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${focusClass}`}
               value={patientData.name}
               onChange={(e) => handleChange('name', e.target.value)}
               placeholder="Digite o nome"
@@ -53,7 +58,7 @@ const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
             </label>
             <input
               type="number"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${focusClass}`}
               value={patientData.age}
               onChange={(e) => handleChange('age', e.target.value)}
               placeholder="Idade"
@@ -64,7 +69,7 @@ const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
               Sexo
             </label>
             <select
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${focusClass}`}
               value={patientData.gender}
               onChange={(e) => handleChange('gender', e.target.value)}
             >

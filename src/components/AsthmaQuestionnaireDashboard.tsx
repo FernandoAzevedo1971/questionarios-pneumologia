@@ -57,6 +57,7 @@ const AsthmaQuestionnaireDashboard: React.FC<AsthmaQuestionnaireDashboardProps> 
       <PatientInfoForm 
         patientData={patientData}
         onPatientDataChange={onPatientDataChange}
+        variant="asthma"
       />
 
       <div className="space-y-4">
