@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Wind, AlertCircle, CheckCircle2 } from 'lucide-react';
+import CATQuestionnaireForm from './CATQuestionnaireForm';
+import CATResult from './CATResult';
 
 interface CATQuestionnaireProps {
   patientData: {
@@ -154,142 +152,22 @@ const CATQuestionnaire = ({ patientData }: CATQuestionnaireProps) => {
 
   if (showResult && interpretation) {
     return (
-      <div className="space-y-6">
-        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Wind className="h-6 w-6 text-orange-600" />
-              Resultado do CAT - Teste de Avaliação da DPOC
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-center space-y-4">
-              <div className="text-6xl font-bold text-orange-600">
-                {score}
-              </div>
-              <div className="text-xl text-gray-600">
-                pontos (0-40)
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className={`${interpretation.bgColor} ${interpretation.borderColor} border-2`}>
-          <CardHeader>
-            <CardTitle className={`flex items-center gap-2 ${interpretation.color}`}>
-              <CheckCircle2 className="h-5 w-5" />
-              Interpretação
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Badge className={`${interpretation.color} bg-white`}>
-                  {interpretation.level}
-                </Badge>
-              </div>
-              <p className={`${interpretation.color} font-medium`}>
-                {interpretation.description}
-              </p>
-              <div className={`text-sm ${interpretation.color} bg-white/50 p-3 rounded-lg`}>
-                <strong>Nota:</strong> O CAT é um questionário para avaliar o impacto da DPOC na vida diária. 
-                Discuta este resultado com seu médico para um plano de tratamento adequado.
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="flex gap-4">
-          <Button onClick={resetQuestionnaire} variant="outline" className="flex-1">
-            Fazer Novo Teste
-          </Button>
-          <Button onClick={() => window.print()} className="flex-1">
-            Imprimir Resultado
-          </Button>
-        </div>
-      </div>
+      <CATResult
+        score={score}
+        interpretation={interpretation}
+        onReset={resetQuestionnaire}
+      />
     );
   }
 
   return (
-    <div className="space-y-6">
-      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wind className="h-6 w-6 text-orange-600" />
-            CAT - Teste de Avaliação da DPOC
-          </CardTitle>
-          <p className="text-gray-600">
-            Este questionário avalia como a DPOC afeta sua vida. Para cada item, 
-            marque na escala de 0 a 5 o ponto que melhor descreve sua situação atual.
-          </p>
-        </CardHeader>
-      </Card>
-
-      {questions.map((question, index) => (
-        <Card key={question.id} className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-lg font-medium text-gray-800">
-              {question.id}. Situação atual:
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <strong>0:</strong> {question.text}
-              </div>
-              <div className="p-3 bg-red-50 rounded-lg border border-red-200">
-                <strong>5:</strong> {question.opposite}
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm text-gray-600">
-                <span>{question.leftLabel}</span>
-                <span>{question.rightLabel}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                {[0, 1, 2, 3, 4, 5].map((value) => (
-                  <label key={value} className="flex flex-col items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name={`question-${question.id}`}
-                      value={value}
-                      checked={answers[index] === value}
-                      onChange={() => handleAnswerChange(index, value)}
-                      className="mb-1 w-4 h-4 text-orange-600 focus:ring-orange-500"
-                    />
-                    <span className="text-sm font-medium">{value}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-
-      <Card className="bg-blue-50 border-blue-200 border-2">
-        <CardContent className="pt-6">
-          <div className="flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
-            <div className="text-sm text-blue-800">
-              <strong>Importante:</strong> Responda todas as questões baseando-se em como você se sente atualmente. 
-              Este questionário foi validado para pessoas com DPOC diagnosticada.
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="flex justify-center">
-        <Button
-          onClick={handleSubmit}
-          disabled={!canSubmit}
-          className="px-8 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {canSubmit ? 'Calcular Resultado' : `Responda todas as questões (${answers.filter(a => a !== -1).length}/8)`}
-        </Button>
-      </div>
-    </div>
+    <CATQuestionnaireForm
+      questions={questions}
+      answers={answers}
+      onAnswerChange={handleAnswerChange}
+      onSubmit={handleSubmit}
+      canSubmit={canSubmit}
+    />
   );
 };
 
