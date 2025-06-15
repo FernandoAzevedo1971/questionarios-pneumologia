@@ -23,7 +23,7 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
     <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
       <CardHeader>
         <CardTitle className="text-lg font-medium text-gray-800">
-          {question.id}. Situação atual:
+          {question.id}. {question.text}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -63,3 +63,4 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
 };
 
 export default CATQuestionCard;
+
