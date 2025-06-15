@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Activity, Wind, Stethoscope, ArrowRight, Lungs } from 'lucide-react';
+import { Activity, Wind, Stethoscope, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -106,7 +107,7 @@ const Home = () => {
             <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:scale-105">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-emerald-100 rounded-full w-20 h-20 flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
-                  <Lungs className="h-10 w-10 text-emerald-600" />
+                  <Stethoscope className="h-10 w-10 text-emerald-600" />
                 </div>
                 <CardTitle className="text-2xl text-emerald-800 group-hover:text-emerald-600 transition-colors">
                   Bronquiectasias

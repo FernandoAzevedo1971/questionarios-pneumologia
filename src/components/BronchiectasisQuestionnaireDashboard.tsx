@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Lungs, Gauge } from 'lucide-react';
+import { Stethoscope, Gauge } from 'lucide-react';
 import BronchiectasisQuestionnaireCard from './BronchiectasisQuestionnaireCard';
 
 interface PatientData {
@@ -29,7 +29,7 @@ const BronchiectasisQuestionnaireDashboard: React.FC<BronchiectasisQuestionnaire
       description: 'Avalia a qualidade de vida em pacientes com bronquiectasias.',
       questions: 10,
       time: '3-4 min',
-      icon: Lungs,
+      icon: Stethoscope, // Alterado para um ícone existente
       color: 'bg-emerald-500'
     },
     // Outras escalas podem ser colocadas aqui
@@ -40,7 +40,7 @@ const BronchiectasisQuestionnaireDashboard: React.FC<BronchiectasisQuestionnaire
       {/* Poderia ter PatientInfoForm futuramente */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-          <Lungs className="h-6 w-6 text-emerald-600" />
+          <Stethoscope className="h-6 w-6 text-emerald-600" />
           Escalas e Questionários Disponíveis
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
