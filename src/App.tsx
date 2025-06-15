@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AsthmaQuestionnaires from "./pages/AsthmaQuestionnaires";
 import COPDQuestionnaires from "./pages/COPDQuestionnaires";
+import BronchiectasisQuestionnaires from "./pages/BronchiectasisQuestionnaires";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/asthma" element={<AsthmaQuestionnaires />} />
           <Route path="/copd" element={<COPDQuestionnaires />} />
+          <Route path="/bronchiectasis" element={<BronchiectasisQuestionnaires />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
