@@ -60,7 +60,7 @@ const Home = () => {
                 <div className="pt-4">
                   <Button 
                     onClick={() => navigate('/asthma')}
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-lg py-6"
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-base py-3"
                   >
                     Acessar Questionários de Asma
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -94,7 +94,7 @@ const Home = () => {
                 <div className="pt-4">
                   <Button 
                     onClick={() => navigate('/copd')}
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 text-lg py-6"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 text-base py-3"
                   >
                     Acessar Questionários de DPOC
                     <ArrowRight className="ml-2 h-5 w-5" />
