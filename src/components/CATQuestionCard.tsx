@@ -29,17 +29,17 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
       <CardContent className="space-y-4">
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-            <strong>0:</strong> {question.text}
+            <strong>0:</strong> {question.leftLabel}
           </div>
           <div className="p-3 bg-red-50 rounded-lg border border-red-200">
-            <strong>5:</strong> {question.opposite}
+            <strong>5:</strong> {question.rightLabel}
           </div>
         </div>
         
         <div className="space-y-2">
           <div className="flex justify-between text-sm text-gray-600">
-            <span>{question.leftLabel}</span>
-            <span>{question.rightLabel}</span>
+            <span>0</span>
+            <span>5</span>
           </div>
           <div className="flex justify-between items-center">
             {[0, 1, 2, 3, 4, 5].map((value) => (
@@ -63,4 +63,3 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
 };
 
 export default CATQuestionCard;
-

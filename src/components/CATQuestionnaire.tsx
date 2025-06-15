@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import CATQuestionnaireForm from './CATQuestionnaireForm';
 import CATResult from './CATResult';
@@ -15,63 +14,62 @@ const CATQuestionnaire = ({ patientData }: CATQuestionnaireProps) => {
   const [answers, setAnswers] = useState<number[]>(Array(8).fill(-1));
   const [showResult, setShowResult] = useState(false);
 
-  // Atualizando apenas os textos conforme solicitado:
   const questions = [
     {
       id: 1,
       text: "Tosse",
-      opposite: "Eu tusso o tempo todo",
-      leftLabel: "Nunca tusso",
-      rightLabel: "Tusso constantemente"
+      opposite: "Eu tenho tosse o tempo todo",
+      leftLabel: "Eu nunca tenho tosse",
+      rightLabel: "Eu tenho tosse o tempo todo"
     },
     {
       id: 2,
-      text: "Catarro no peito (escarro)",
+      text: "Secreção/Catarro",
       opposite: "Meu peito está completamente cheio de secreção (catarro)",
-      leftLabel: "Sem secreção",
-      rightLabel: "Cheio de secreção"
+      leftLabel: "Não tenho nenhuma secreção (catarro) no peito",
+      rightLabel: "Meu peito está completamente cheio de secreção (catarro)"
     },
     {
       id: 3,
-      text: "Sensação de aperto no peito",
-      opposite: "Meu peito se sente muito apertado",
-      leftLabel: "Não apertado",
-      rightLabel: "Muito apertado"
+      text: "Aperto no peito",
+      opposite: "Sinto muito aperto no peito",
+      leftLabel: "Não sinto nenhum aperto no peito",
+      rightLabel: "Sinto muito aperto no peito"
     },
     {
       id: 4,
-      text: "Falta de ar ao subir ladeira ou um lance de escadas",
-      opposite: "Quando subo uma ladeira ou um lance de escadas fico muito com falta de ar",
-      leftLabel: "Sem falta de ar",
-      rightLabel: "Muita falta de ar"
+      text: "Falta de ar (Dispneia)",
+      opposite: "Quando subo uma ladeira ou um lance de escadas fico muito sem fôlego",
+      leftLabel: "Quando subo uma ladeira ou um lance de escadas não fico sem fôlego",
+      rightLabel: "Quando subo uma ladeira ou um lance de escadas fico muito sem fôlego"
     },
     {
       id: 5,
-      text: "Limitação das atividades em casa",
-      opposite: "Fico muito limitado(a) em atividades domésticas",
-      leftLabel: "Sem limitação",
-      rightLabel: "Muito limitado"
+      text: "Limitação de atividades domésticas",
+      opposite: "Sinto-me muito limitado para fazer atividades domésticas",
+      leftLabel: "Não me sinto limitado para fazer qualquer atividade doméstica",
+      rightLabel: "Sinto-me muito limitado para fazer atividades domésticas"
     },
     {
       id: 6,
-      text: "Segurança para sair de casa apesar da doença pulmonar",
-      opposite: "Não me sinto nada confiante para sair de casa devido ao meu problema pulmonar",
-      leftLabel: "Confiante",
-      rightLabel: "Sem confiança"
+      text: "Confiança para sair de casa",
+      opposite: "Não me sinto nada confiante para sair de casa por causa da minha doença pulmonar",
+      leftLabel: "Sinto-me confiante para sair de casa, apesar da minha doença pulmonar",
+      rightLabel: "Não me sinto nada confiante para sair de casa por causa da minha doença pulmonar"
     },
     {
       id: 7,
-      text: "Sono (qualidade do sono afetada pela doença pulmonar)",
-      opposite: "Não durmo profundamente devido ao meu problema pulmonar",
-      leftLabel: "Durmo bem",
-      rightLabel: "Não durmo bem"
+      text: "Sono",
+      opposite: "Não durmo profundamente por causa da minha doença pulmonar",
+      leftLabel: "Durmo profundamente",
+      rightLabel: "Não durmo profundamente por causa da minha doença pulmonar"
     },
     {
       id: 8,
-      text: "Energia para realizar as atividades do dia a dia",
-      opposite: "Não tenho energia nenhuma",
-      leftLabel: "Muita energia",
-      rightLabel: "Sem energia"
+      text: "Energia",
+      opposite: "Não tenho nenhuma energia",
+      leftLabel: "Tenho muita energia",
+      rightLabel: "Não tenho nenhuma energia"
     }
   ];
 
