@@ -15,59 +15,60 @@ const CATQuestionnaire = ({ patientData }: CATQuestionnaireProps) => {
   const [answers, setAnswers] = useState<number[]>(Array(8).fill(-1));
   const [showResult, setShowResult] = useState(false);
 
+  // Atualizando apenas os textos conforme solicitado:
   const questions = [
     {
       id: 1,
-      text: "Eu nunca tusso",
+      text: "Tosse",
       opposite: "Eu tusso o tempo todo",
       leftLabel: "Nunca tusso",
       rightLabel: "Tusso constantemente"
     },
     {
       id: 2,
-      text: "Não tenho nenhuma secreção (catarro) no peito",
+      text: "Catarro no peito (escarro)",
       opposite: "Meu peito está completamente cheio de secreção (catarro)",
       leftLabel: "Sem secreção",
       rightLabel: "Cheio de secreção"
     },
     {
       id: 3,
-      text: "Meu peito não se sente apertado",
+      text: "Sensação de aperto no peito",
       opposite: "Meu peito se sente muito apertado",
       leftLabel: "Não apertado",
       rightLabel: "Muito apertado"
     },
     {
       id: 4,
-      text: "Quando subo uma ladeira ou um lance de escadas não fico com falta de ar",
+      text: "Falta de ar ao subir ladeira ou um lance de escadas",
       opposite: "Quando subo uma ladeira ou um lance de escadas fico muito com falta de ar",
       leftLabel: "Sem falta de ar",
       rightLabel: "Muita falta de ar"
     },
     {
       id: 5,
-      text: "Não fico limitado(a) em nenhuma atividade doméstica",
+      text: "Limitação das atividades em casa",
       opposite: "Fico muito limitado(a) em atividades domésticas",
       leftLabel: "Sem limitação",
       rightLabel: "Muito limitado"
     },
     {
       id: 6,
-      text: "Sinto-me confiante para sair de casa, apesar do meu problema pulmonar",
+      text: "Segurança para sair de casa apesar da doença pulmonar",
       opposite: "Não me sinto nada confiante para sair de casa devido ao meu problema pulmonar",
       leftLabel: "Confiante",
       rightLabel: "Sem confiança"
     },
     {
       id: 7,
-      text: "Durmo profundamente",
+      text: "Sono (qualidade do sono afetada pela doença pulmonar)",
       opposite: "Não durmo profundamente devido ao meu problema pulmonar",
       leftLabel: "Durmo bem",
       rightLabel: "Não durmo bem"
     },
     {
       id: 8,
-      text: "Tenho muita energia",
+      text: "Energia para realizar as atividades do dia a dia",
       opposite: "Não tenho energia nenhuma",
       leftLabel: "Muita energia",
       rightLabel: "Sem energia"
