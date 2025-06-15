@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Stethoscope, Gauge } from 'lucide-react';
 import BronchiectasisQuestionnaireCard from './BronchiectasisQuestionnaireCard';
+import BSIQuestionnaire from './BSIQuestionnaire';
 
 interface PatientData {
   name: string;
@@ -21,7 +21,7 @@ const BronchiectasisQuestionnaireDashboard: React.FC<BronchiectasisQuestionnaire
   onPatientDataChange,
   onQuestionnaireSelect,
 }) => {
-  // Inicialmente, só uma escala de exemplo. Novas escalas podem ser adicionadas aqui após criadas!
+  // Atualize a lista de questionários/escala disponíveis
   const bronchiectasisQuestionnaires = [
     {
       id: 'bhpq',
@@ -29,10 +29,19 @@ const BronchiectasisQuestionnaireDashboard: React.FC<BronchiectasisQuestionnaire
       description: 'Avalia a qualidade de vida em pacientes com bronquiectasias.',
       questions: 10,
       time: '3-4 min',
-      icon: Stethoscope, // Alterado para um ícone existente
+      icon: Stethoscope,
       color: 'bg-emerald-500'
     },
-    // Outras escalas podem ser colocadas aqui
+    {
+      id: 'bsi',
+      title: 'BSI - Bronchiectasis Severity Index',
+      description: 'Índice prognóstico multidimensional para bronquiectasias. (Chalmers et al., 2014)',
+      questions: 9,
+      time: '5 min',
+      icon: Stethoscope,
+      color: 'bg-blue-500'
+    },
+    // Outras escalas podem ser colocadas aqui futuramente
   ];
 
   return (

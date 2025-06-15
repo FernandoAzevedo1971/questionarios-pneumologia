@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import BronchiectasisQuestionnaireDashboard from '@/components/BronchiectasisQuestionnaireDashboard';
+import BSIQuestionnaire from "@/components/BSIQuestionnaire";
 
 const BronchiectasisQuestionnaires = () => {
   // Preparado para coletar dados do paciente no futuro caso queira.
@@ -23,8 +23,13 @@ const BronchiectasisQuestionnaires = () => {
           onPatientDataChange={setPatientData}
           onQuestionnaireSelect={setSelectedQuestionnaire}
         />
-        {/* Futuramente: Exibição do formulário selecionado */}
-        {selectedQuestionnaire && (
+        {/* Área para o formulário/escala escolhida */}
+        {selectedQuestionnaire === 'bsi' && (
+          <div className="mt-8 flex justify-center">
+            <BSIQuestionnaire />
+          </div>
+        )}
+        {selectedQuestionnaire === 'bhpq' && (
           <div className="mt-8 text-center">
             <div className="inline-block bg-white border border-emerald-200 rounded-md px-8 py-6">
               <h2 className="text-2xl font-bold text-emerald-700 mb-2">Em breve!</h2>
