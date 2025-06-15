@@ -1,7 +1,10 @@
+
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, Progress } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Stethoscope } from 'lucide-react';
+import { CheckCircle, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import ACQResultCard from './ACQResultCard';
 import ACQQuestionStep from './ACQQuestionStep';

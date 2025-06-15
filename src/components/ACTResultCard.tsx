@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Activity, Button } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 interface ACTResultCardProps {
   score: number;

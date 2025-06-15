@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Stethoscope, Button } from 'lucide-react';
+import { Stethoscope } from 'lucide-react';
 
 interface ACQResultCardProps {
   score: number;
