@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,29 +23,24 @@ const MRCResult: React.FC<MRCResultProps> = ({
   onReset
 }) => {
   return (
-    <div className="space-y-6">
-      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+    <div className="space-y-6 animate-fade-in">
+      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl animate-scale-in">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 font-bold text-red-700">
             <Gauge className="h-6 w-6 text-red-600" />
             Resultado da Escala de Dispneia MRC
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center space-y-4">
-            <div className="text-6xl font-bold text-red-600">
-              {selectedGrade}
-            </div>
-            <div className="text-xl text-gray-600">
-              Grau MRC (0-4)
-            </div>
+            <div className="text-6xl font-extrabold text-red-600">{selectedGrade}</div>
+            <div className="text-xl text-neutral-600">Grau MRC (0-4)</div>
           </div>
         </CardContent>
       </Card>
-
-      <Card className={`${interpretation.bgColor} ${interpretation.borderColor} border-2`}>
+      <Card className={`${interpretation.bgColor} ${interpretation.borderColor} border-2 animate-scale-in`}>
         <CardHeader>
-          <CardTitle className={`flex items-center gap-2 ${interpretation.color}`}>
+          <CardTitle className={`flex items-center gap-2 ${interpretation.color} font-bold`}>
             <CheckCircle2 className="h-5 w-5" />
             Interpretação
           </CardTitle>
@@ -71,12 +65,11 @@ const MRCResult: React.FC<MRCResultProps> = ({
           </div>
         </CardContent>
       </Card>
-
       <div className="flex gap-4">
-        <Button onClick={onReset} variant="outline" className="flex-1">
+        <Button onClick={onReset} variant="outline" className="flex-1 questionnaire-button-outline text-base py-3 font-semibold">
           Fazer Nova Avaliação
         </Button>
-        <Button onClick={() => window.print()} className="flex-1">
+        <Button onClick={() => window.print()} className="flex-1 questionnaire-button-primary text-base py-3 font-semibold">
           Imprimir Resultado
         </Button>
       </div>

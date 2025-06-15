@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -20,30 +19,27 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
   onAnswerChange
 }) => {
   return (
-    <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+    <Card className="bg-white/90 backdrop-blur rounded-lg shadow-sm border border-orange-100 animate-fade-in">
       <CardHeader>
-        <CardTitle className="text-lg font-medium text-gray-800">
-          {question.id}. {question.text}
-        </CardTitle>
+        <CardTitle className="text-lg font-bold text-orange-800 mb-2">{question.id}. {question.text}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div className="p-3 bg-green-50 rounded-lg border border-green-200 text-green-800">
             <strong>0:</strong> {question.leftLabel}
           </div>
-          <div className="p-3 bg-red-50 rounded-lg border border-red-200">
+          <div className="p-3 bg-red-50 rounded-lg border border-red-200 text-red-800">
             <strong>5:</strong> {question.rightLabel}
           </div>
         </div>
-        
         <div className="space-y-2">
-          <div className="flex justify-between text-sm text-gray-600">
+          <div className="flex justify-between text-sm text-neutral-400">
             <span>0</span>
             <span>5</span>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-1">
             {[0, 1, 2, 3, 4, 5].map((value) => (
-              <label key={value} className="flex flex-col items-center cursor-pointer">
+              <label key={value} className="flex flex-col items-center cursor-pointer animate-scale-in">
                 <input
                   type="radio"
                   name={`question-${question.id}`}
@@ -52,7 +48,7 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
                   onChange={() => onAnswerChange(value)}
                   className="mb-1 w-4 h-4 text-orange-600 focus:ring-orange-500"
                 />
-                <span className="text-sm font-medium">{value}</span>
+                <span className="text-sm font-bold">{value}</span>
               </label>
             ))}
           </div>

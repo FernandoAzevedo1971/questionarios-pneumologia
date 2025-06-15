@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -22,23 +21,22 @@ const MRCQuestionnaireForm: React.FC<MRCQuestionnaireFormProps> = ({
   onSubmit
 }) => {
   return (
-    <div className="space-y-6">
-      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+    <div className="space-y-6 animate-fade-in">
+      <Card className="bg-white/80 border-0 shadow-xl backdrop-blur-sm animate-scale-in">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 font-bold text-red-700">
             <Gauge className="h-6 w-6 text-red-600" />
             Escala de Dispneia MRC (Medical Research Council)
           </CardTitle>
-          <p className="text-gray-600">
+          <p className="text-neutral-600">
             Selecione a opção que melhor descreve o seu grau de falta de ar (dispneia) 
             durante as atividades físicas do dia a dia.
           </p>
         </CardHeader>
       </Card>
-
-      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+      <Card className="bg-white/90 border-0 shadow-lg backdrop-blur-sm animate-scale-in">
         <CardHeader>
-          <CardTitle className="text-lg">
+          <CardTitle className="text-lg font-semibold text-red-700">
             Qual das seguintes frases melhor descreve sua falta de ar?
           </CardTitle>
         </CardHeader>
@@ -54,7 +52,6 @@ const MRCQuestionnaireForm: React.FC<MRCQuestionnaireFormProps> = ({
           ))}
         </CardContent>
       </Card>
-
       <Card className="bg-blue-50 border-blue-200 border-2">
         <CardContent className="pt-6">
           <div className="flex items-start gap-3">
@@ -71,12 +68,11 @@ const MRCQuestionnaireForm: React.FC<MRCQuestionnaireFormProps> = ({
           </div>
         </CardContent>
       </Card>
-
       <div className="flex justify-center">
         <Button
           onClick={onSubmit}
           disabled={selectedGrade === -1}
-          className="px-8 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3 questionnaire-button-primary text-base font-semibold shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
         >
           {selectedGrade !== -1 ? 'Ver Resultado' : 'Selecione uma opção'}
         </Button>

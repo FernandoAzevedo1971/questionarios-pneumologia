@@ -19,10 +19,10 @@ const MRCQuestionCard: React.FC<MRCQuestionCardProps> = ({
 
   return (
     <label
-      className={`flex items-start gap-4 p-4 rounded-lg border-2 cursor-pointer transition-all ${
+      className={`flex items-start gap-4 p-4 rounded-lg border-2 cursor-pointer transition-all animate-scale-in ${
         isSelected
-          ? 'border-red-500 bg-red-50'
-          : 'border-gray-200 bg-white hover:border-red-300 hover:bg-red-25'
+          ? 'border-red-500 bg-red-50 shadow-md'
+          : 'border-gray-200 bg-white hover:border-red-300 hover:bg-red-25 shadow-sm'
       }`}
     >
       <input
@@ -35,11 +35,11 @@ const MRCQuestionCard: React.FC<MRCQuestionCardProps> = ({
       />
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-2">
-          <Badge variant={isSelected ? "default" : "outline"}>
+          <Badge variant={isSelected ? "default" : "outline"} className={isSelected ? "bg-red-500 text-white" : undefined}>
             Grau {grade}
           </Badge>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed">
+        <p className="text-neutral-700 text-sm leading-relaxed font-semibold">
           {description}
         </p>
       </div>

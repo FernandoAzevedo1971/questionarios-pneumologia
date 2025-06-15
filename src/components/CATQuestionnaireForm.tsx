@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -27,20 +26,19 @@ const CATQuestionnaireForm: React.FC<CATQuestionnaireFormProps> = ({
   canSubmit
 }) => {
   return (
-    <div className="space-y-6">
-      <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+    <div className="space-y-6 animate-fade-in">
+      <Card className="bg-white/80 border-0 shadow-xl backdrop-blur-sm animate-scale-in">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 font-bold text-orange-700">
             <Wind className="h-6 w-6 text-orange-600" />
             COPD Assessment Test: CAT-SCORE
           </CardTitle>
-          <p className="text-gray-600">
+          <p className="text-neutral-600">
             Este questionário avalia como a DPOC afeta sua vida. Para cada item, 
             marque na escala de 0 a 5 o ponto que melhor descreve sua situação atual.
           </p>
         </CardHeader>
       </Card>
-
       {questions.map((question, index) => (
         <CATQuestionCard
           key={question.id}
@@ -49,7 +47,6 @@ const CATQuestionnaireForm: React.FC<CATQuestionnaireFormProps> = ({
           onAnswerChange={(value) => onAnswerChange(index, value)}
         />
       ))}
-
       <Card className="bg-blue-50 border-blue-200 border-2">
         <CardContent className="pt-6">
           <div className="flex items-start gap-3">
@@ -61,12 +58,11 @@ const CATQuestionnaireForm: React.FC<CATQuestionnaireFormProps> = ({
           </div>
         </CardContent>
       </Card>
-
       <div className="flex justify-center">
         <Button
           onClick={onSubmit}
           disabled={!canSubmit}
-          className="px-8 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3 questionnaire-button-primary text-base font-semibold shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
         >
           {canSubmit ? 'Calcular Resultado' : `Responda todas as questões (${answers.filter(a => a !== -1).length}/8)`}
         </Button>

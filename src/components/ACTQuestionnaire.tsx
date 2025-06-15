@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -178,51 +177,44 @@ const ACTQuestionnaire: React.FC<ACTQuestionnaireProps> = ({ patientData }) => {
     const IconComponent = interpretation.icon;
 
     return (
-      <div className="max-w-2xl mx-auto space-y-6">
-        <Card className="bg-white shadow-lg">
-          <CardHeader className="text-center">
-            <CardTitle className="flex items-center justify-center gap-2 text-2xl">
+      <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
+        <Card className="bg-white/80 border-0 shadow-xl backdrop-blur-sm animate-scale-in">
+          <CardHeader className="text-center border-b border-blue-100">
+            <CardTitle className="flex items-center justify-center gap-2 text-2xl font-bold text-primary-700">
               <Activity className="h-6 w-6 text-blue-600" />
               Resultado do ACT
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="text-center">
-              <div className="text-6xl font-bold text-blue-600 mb-2">
+              <div className="text-6xl font-extrabold text-blue-600 mb-2 drop-shadow">
                 {score}
               </div>
-              <div className="text-lg text-gray-600">
-                de 25 pontos
-              </div>
+              <div className="text-lg text-neutral-600">de 25 pontos</div>
             </div>
-
-            <div className={`p-6 rounded-lg border-2 ${interpretation.bgColor} ${interpretation.borderColor}`}>
+            <div className={`p-6 rounded-lg border-2 ${interpretation.bgColor} ${interpretation.borderColor} animate-fade-in`}>
               <div className="flex items-center gap-3 mb-3">
                 <IconComponent className={`h-6 w-6 ${interpretation.color}`} />
                 <h3 className={`text-xl font-semibold ${interpretation.color}`}>
                   {interpretation.level}
                 </h3>
               </div>
-              <p className="text-gray-700">
-                {interpretation.description}
-              </p>
+              <p className="text-neutral-700">{interpretation.description}</p>
             </div>
-
             {patientData.name && (
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-medium text-gray-800 mb-2">Dados do Paciente:</h4>
+              <div className="bg-neutral-50 p-4 rounded-lg animate-fade-in">
+                <h4 className="font-semibold text-blue-800 mb-2">Dados do Paciente:</h4>
                 <p><strong>Nome:</strong> {patientData.name}</p>
                 {patientData.age && <p><strong>Idade:</strong> {patientData.age} anos</p>}
                 {patientData.gender && <p><strong>Sexo:</strong> {patientData.gender === 'M' ? 'Masculino' : 'Feminino'}</p>}
                 <p><strong>Data:</strong> {new Date().toLocaleDateString('pt-BR')}</p>
               </div>
             )}
-
-            <div className="flex gap-3">
-              <Button onClick={saveResults} className="flex-1">
+            <div className="flex gap-3 w-full">
+              <Button onClick={saveResults} className="flex-1 questionnaire-button-primary text-base py-3 font-semibold shadow-sm">
                 Salvar Resultados
               </Button>
-              <Button onClick={resetQuestionnaire} variant="outline" className="flex-1">
+              <Button onClick={resetQuestionnaire} variant="outline" className="flex-1 questionnaire-button-outline text-base py-3 font-semibold">
                 Novo Teste
               </Button>
             </div>
@@ -235,23 +227,21 @@ const ACTQuestionnaire: React.FC<ACTQuestionnaireProps> = ({ patientData }) => {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
-      <Card className="bg-white shadow-lg">
+    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
+      <Card className="bg-white/80 border-0 shadow-xl backdrop-blur-sm animate-scale-in">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 font-bold text-primary-700">
               <Activity className="h-5 w-5 text-blue-600" />
               ACT - Teste de Controle da Asma
             </CardTitle>
-            <Badge variant="outline">
-              {currentQuestion + 1} de {questions.length}
-            </Badge>
+            <Badge variant="outline" className="border-primary-100 text-blue-600">{currentQuestion + 1} de {questions.length}</Badge>
           </div>
           <Progress value={progress} className="mt-2" />
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
-            <h3 className="text-lg font-medium text-gray-800 mb-4">
+            <h3 className="text-lg font-semibold text-neutral-800 mb-4">
               {questions[currentQuestion].text}
             </h3>
             <div className="space-y-3">
@@ -259,15 +249,15 @@ const ACTQuestionnaire: React.FC<ACTQuestionnaireProps> = ({ patientData }) => {
                 <button
                   key={option.value}
                   onClick={() => handleAnswerSelect(option.value)}
-                  className={`w-full p-4 text-left border-2 rounded-lg transition-all duration-200 hover:bg-blue-50 ${
+                  className={`w-full p-4 text-left rounded-lg border transition-all duration-200 font-medium shadow-sm focus-visible-style ${
                     answers[currentQuestion] === option.value
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-200 hover:border-blue-300'
+                      ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-primary'
+                      : 'border-gray-200 hover:border-blue-300 hover:bg-neutral-50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{option.text}</span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-neutral-400 font-normal">
                       {option.value} {option.value === 1 ? 'ponto' : 'pontos'}
                     </span>
                   </div>
@@ -275,16 +265,16 @@ const ACTQuestionnaire: React.FC<ACTQuestionnaireProps> = ({ patientData }) => {
               ))}
             </div>
           </div>
-
           <div className="flex justify-between">
             <Button
               onClick={handlePrevious}
               disabled={currentQuestion === 0}
               variant="outline"
+              className="questionnaire-button-outline"
             >
               Anterior
             </Button>
-            <Button onClick={handleNext}>
+            <Button onClick={handleNext} className="questionnaire-button-primary">
               {currentQuestion === questions.length - 1 ? 'Finalizar' : 'Próxima'}
             </Button>
           </div>

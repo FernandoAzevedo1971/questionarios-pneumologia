@@ -130,12 +130,14 @@ const MRCQuestionnaire = ({ patientData }: MRCQuestionnaireProps) => {
   }
 
   return (
-    <MRCQuestionnaireForm
-      mrcGrades={mrcGrades}
-      selectedGrade={selectedGrade}
-      onGradeSelect={setSelectedGrade}
-      onSubmit={handleSubmit}
-    />
+    <div className="animate-fade-in">
+      <MRCQuestionnaireForm
+        mrcGrades={mrcGrades}
+        selectedGrade={selectedGrade}
+        onGradeSelect={setSelectedGrade}
+        onSubmit={handleSubmit}
+      />
+    </div>
   );
 };
 
