@@ -32,7 +32,7 @@ const CATQuestionnaireForm: React.FC<CATQuestionnaireFormProps> = ({
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Wind className="h-6 w-6 text-orange-600" />
-            CAT - Teste de Avaliação da DPOC
+            COPD Assessment Test: CAT-SCORE
           </CardTitle>
           <p className="text-gray-600">
             Este questionário avalia como a DPOC afeta sua vida. Para cada item, 
