@@ -29,17 +29,6 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-xl border border-green-200 dark:border-green-800 text-card-foreground">
-            <div className="font-bold text-green-600 dark:text-green-400 mb-2">0 - Melhor situação:</div>
-            <p className="text-sm">{question.leftLabel}</p>
-          </div>
-          <div className="p-4 bg-destructive/10 rounded-xl border border-destructive/20 text-card-foreground">
-            <div className="font-bold text-destructive mb-2">5 - Pior situação:</div>
-            <p className="text-sm">{question.rightLabel}</p>
-          </div>
-        </div>
-        
         <div className="space-y-6">
           <div className="text-center">
             <h4 className="font-semibold text-card-foreground mb-4">Selecione sua situação atual na régua:</h4>
