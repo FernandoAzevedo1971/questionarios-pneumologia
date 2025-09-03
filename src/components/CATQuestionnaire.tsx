@@ -88,33 +88,33 @@ const CATQuestionnaire = ({ patientData }: CATQuestionnaireProps) => {
       return {
         level: 'Baixo impacto',
         description: 'A DPOC tem baixo impacto na sua vida. Sintomas leves que não interferem significativamente nas atividades diárias.',
-        color: 'text-green-600',
-        bgColor: 'bg-green-50',
-        borderColor: 'border-green-200'
+        color: 'text-primary',
+        bgColor: 'bg-primary/5',
+        borderColor: 'border-primary/20'
       };
     } else if (score <= 20) {
       return {
         level: 'Médio impacto',
         description: 'A DPOC tem impacto moderado na sua vida. Sintomas que podem interferir ocasionalmente nas atividades.',
-        color: 'text-yellow-600',
-        bgColor: 'bg-yellow-50',
-        borderColor: 'border-yellow-200'
+        color: 'text-accent-foreground',
+        bgColor: 'bg-accent/20',
+        borderColor: 'border-accent'
       };
     } else if (score <= 30) {
       return {
         level: 'Alto impacto',
         description: 'A DPOC tem alto impacto na sua vida. Sintomas que interferem significativamente nas atividades diárias.',
-        color: 'text-orange-600',
-        bgColor: 'bg-orange-50',
-        borderColor: 'border-orange-200'
+        color: 'text-muted-foreground',
+        bgColor: 'bg-muted/30',
+        borderColor: 'border-muted'
       };
     } else {
       return {
         level: 'Muito alto impacto',
         description: 'A DPOC tem impacto muito alto na sua vida. Sintomas graves que limitam muito as atividades.',
-        color: 'text-red-600',
-        bgColor: 'bg-red-50',
-        borderColor: 'border-red-200'
+        color: 'text-destructive',
+        bgColor: 'bg-destructive/10',
+        borderColor: 'border-destructive/30'
       };
     }
   };
