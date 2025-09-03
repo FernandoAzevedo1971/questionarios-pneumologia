@@ -40,40 +40,71 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
           </div>
         </div>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="text-center">
-            <h4 className="font-semibold text-card-foreground mb-2">Selecione sua situação atual:</h4>
-            <div className="flex justify-between text-xs text-muted-foreground px-4">
-              <span>Melhor (0)</span>
-              <span>Pior (5)</span>
-            </div>
+            <h4 className="font-semibold text-card-foreground mb-4">Selecione sua situação atual na régua:</h4>
           </div>
           
-          <div className="flex justify-between items-center gap-2 p-4 bg-muted/50 rounded-xl">
-            {[0, 1, 2, 3, 4, 5].map((value) => (
-              <label key={value} className="flex flex-col items-center cursor-pointer group">
-                <div className={`
-                  relative w-14 h-14 rounded-full border-2 transition-all duration-200 flex items-center justify-center
-                  ${answer === value 
-                    ? 'bg-primary border-primary text-primary-foreground shadow-lg scale-110' 
-                    : 'bg-card border-border hover:border-primary/50 hover:bg-accent/50 group-hover:scale-105'
-                  }
-                `}>
-                  <input
-                    type="radio"
-                    name={`question-${question.id}`}
-                    value={value}
-                    checked={answer === value}
-                    onChange={() => onAnswerChange(value)}
-                    className="absolute opacity-0 w-full h-full cursor-pointer"
-                  />
-                  <span className="text-base font-bold pointer-events-none">{value}</span>
-                </div>
-                {answer === value && (
-                  <div className="mt-2 w-2 h-2 bg-primary rounded-full animate-scale-in"></div>
-                )}
-              </label>
-            ))}
+          <div className="p-6 bg-muted/50 rounded-xl">
+            {/* Legendas das extremidades */}
+            <div className="flex justify-between items-start mb-6 px-2">
+              <div className="text-left max-w-[45%]">
+                <div className="font-bold text-accent text-sm mb-1">0 - Melhor situação</div>
+                <p className="text-xs text-muted-foreground leading-tight">{question.leftLabel}</p>
+              </div>
+              <div className="text-right max-w-[45%]">
+                <div className="font-bold text-destructive text-sm mb-1">5 - Pior situação</div>
+                <p className="text-xs text-muted-foreground leading-tight">{question.rightLabel}</p>
+              </div>
+            </div>
+
+            {/* Régua visual customizada */}
+            <div className="relative">
+              {/* Linha base da régua */}
+              <div className="relative h-3 bg-secondary rounded-full mb-8">
+                {/* Linha de progresso */}
+                <div 
+                  className="absolute h-full bg-gradient-to-r from-accent to-destructive rounded-full transition-all duration-300"
+                  style={{ width: `${(answer / 5) * 100}%` }}
+                />
+                
+                {/* Marcadores na régua */}
+                {[0, 1, 2, 3, 4, 5].map((value) => (
+                  <button
+                    key={value}
+                    onClick={() => onAnswerChange(value)}
+                    className={`
+                      absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full border-3 transition-all duration-200 flex items-center justify-center text-sm font-bold
+                      ${answer === value 
+                        ? 'bg-primary border-primary text-primary-foreground shadow-lg scale-125 z-10' 
+                        : 'bg-background border-border hover:border-primary/50 hover:scale-110 shadow-md'
+                      }
+                    `}
+                    style={{ left: `${(value / 5) * 100}%` }}
+                  >
+                    {value}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Números abaixo da régua */}
+              <div className="flex justify-between px-4 text-xs text-muted-foreground">
+                {[0, 1, 2, 3, 4, 5].map((value) => (
+                  <span key={value} className={answer === value ? 'text-primary font-semibold' : ''}>
+                    {value}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Indicador da resposta selecionada */}
+            {answer !== -1 && (
+              <div className="mt-4 text-center p-3 bg-primary/10 rounded-lg border border-primary/20">
+                <span className="text-primary font-semibold">
+                  Resposta selecionada: {answer}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </CardContent>
