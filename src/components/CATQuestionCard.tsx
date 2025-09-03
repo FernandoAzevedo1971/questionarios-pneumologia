@@ -30,8 +30,8 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 bg-accent/30 rounded-xl border border-accent text-card-foreground">
-            <div className="font-bold text-primary mb-2">0 - Melhor situação:</div>
+          <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-xl border border-green-200 dark:border-green-800 text-card-foreground">
+            <div className="font-bold text-green-600 dark:text-green-400 mb-2">0 - Melhor situação:</div>
             <p className="text-sm">{question.leftLabel}</p>
           </div>
           <div className="p-4 bg-destructive/10 rounded-xl border border-destructive/20 text-card-foreground">
@@ -49,7 +49,7 @@ const CATQuestionCard: React.FC<CATQuestionCardProps> = ({
             {/* Legendas das extremidades */}
             <div className="flex justify-between items-start mb-6 px-2">
               <div className="text-left max-w-[45%]">
-                <div className="font-bold text-accent text-sm mb-1">0 - Melhor situação</div>
+                <div className="font-bold text-green-600 text-sm mb-1">0 - Melhor situação</div>
                 <p className="text-xs text-muted-foreground leading-tight">{question.leftLabel}</p>
               </div>
               <div className="text-right max-w-[45%]">
