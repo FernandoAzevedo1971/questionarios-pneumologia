@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Wind, BarChart3, Gauge } from 'lucide-react';
+import { Wind, BarChart3, Gauge, Stethoscope } from 'lucide-react';
 import PatientInfoForm from './PatientInfoForm';
 import COPDQuestionnaireCard from './COPDQuestionnaireCard';
 import PatientHistory from './PatientHistory';
@@ -49,6 +49,15 @@ const COPDQuestionnaireDashboard: React.FC<COPDQuestionnaireDashboardProps> = ({
       time: '1 min',
       icon: BarChart3,
       color: 'bg-indigo-500'
+    },
+    {
+      id: 'ccq',
+      title: 'CCQ - Questionário Clínico sobre DPOC',
+      description: 'Avalia sintomas, estado funcional e controle clínico da DPOC',
+      questions: 10,
+      time: '3-5 min',
+      icon: Stethoscope,
+      color: 'bg-purple-500'
     }
   ];
 
@@ -65,7 +74,7 @@ const COPDQuestionnaireDashboard: React.FC<COPDQuestionnaireDashboardProps> = ({
           <Wind className="h-6 w-6 text-orange-600" />
           Questionários Disponíveis
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {copdQuestionnaires.map((questionnaire) => (
             <COPDQuestionnaireCard
               key={questionnaire.id}

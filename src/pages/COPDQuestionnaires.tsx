@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import CATQuestionnaire from '@/components/CATQuestionnaire';
 import MRCQuestionnaire from '@/components/MRCQuestionnaire';
 import BORGQuestionnaire from '@/components/BORGQuestionnaire';
+import CCQQuestionnaire from '@/components/CCQQuestionnaire';
 import References from '@/components/References';
 import COPDQuestionnaireDashboard from '@/components/COPDQuestionnaireDashboard';
 
@@ -50,7 +51,7 @@ const COPDQuestionnaires = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-8">
+          <TabsList className="grid w-full grid-cols-6 mb-8">
             <TabsTrigger value="dashboard" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
               Dashboard
@@ -58,6 +59,7 @@ const COPDQuestionnaires = () => {
             <TabsTrigger value="cat">CAT</TabsTrigger>
             <TabsTrigger value="mrc">MRC</TabsTrigger>
             <TabsTrigger value="borg">BORG</TabsTrigger>
+            <TabsTrigger value="ccq">CCQ</TabsTrigger>
             <TabsTrigger value="references" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Referências
@@ -82,6 +84,10 @@ const COPDQuestionnaires = () => {
 
           <TabsContent value="borg">
             <BORGQuestionnaire patientData={patientData} />
+          </TabsContent>
+
+          <TabsContent value="ccq">
+            <CCQQuestionnaire patientData={patientData} />
           </TabsContent>
 
           <TabsContent value="references">
