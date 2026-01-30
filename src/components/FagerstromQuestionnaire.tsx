@@ -185,7 +185,7 @@ const FagerstromQuestionnaire: React.FC<FagerstromQuestionnaireProps> = ({
                   <p className="text-gray-800 font-medium flex-1">{question.text}</p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 ml-10">
+                <div className="flex flex-col gap-2 ml-10">
                   {question.options.map((option, optIndex) => (
                     <Button
                       key={optIndex}
