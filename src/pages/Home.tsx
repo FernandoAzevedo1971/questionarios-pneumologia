@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Activity, Wind, Stethoscope, ArrowRight } from 'lucide-react';
+import { Activity, Wind, Stethoscope, ArrowRight, Cigarette } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
             Selecione a Categoria de Avaliação
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Asthma Category */}
             <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:scale-105">
               <CardHeader className="text-center pb-4">
@@ -89,6 +89,7 @@ const Home = () => {
                     <li>• CAT - Teste de Avaliação da DPOC</li>
                     <li>• MRC - Escala de Dispneia</li>
                     <li>• BORG - Escala de Percepção de Esforço</li>
+                    <li>• CCQ - Questionário Clínico DPOC</li>
                   </ul>
                 </div>
                 <div className="pt-4">
@@ -129,6 +130,38 @@ const Home = () => {
                     className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 text-base py-3"
                   >
                     Acessar Escalas de Bronquiectasias
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Smoking Category */}
+            <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:scale-105">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto mb-4 p-4 bg-amber-100 rounded-full w-20 h-20 flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                  <Cigarette className="h-10 w-10 text-amber-600" />
+                </div>
+                <CardTitle className="text-2xl text-amber-800 group-hover:text-amber-600 transition-colors">
+                  Tabagismo
+                </CardTitle>
+                <CardDescription className="text-lg text-gray-600">
+                  Questionários para avaliação da dependência nicotínica
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-gray-800">Questionários Disponíveis:</h4>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• Teste de Fagerström</li>
+                  </ul>
+                </div>
+                <div className="pt-4">
+                  <Button 
+                    onClick={() => navigate('/smoking')}
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 transition-all duration-300 text-base py-3"
+                  >
+                    Acessar Questionários de Tabagismo
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>

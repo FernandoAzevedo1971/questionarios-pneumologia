@@ -12,7 +12,7 @@ interface PatientData {
 interface PatientInfoFormProps {
   patientData: PatientData;
   onPatientDataChange: (data: PatientData) => void;
-  variant?: 'asthma' | 'copd';
+  variant?: 'asthma' | 'copd' | 'smoking' | 'bronchiectasis';
 }
 
 const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
@@ -27,8 +27,26 @@ const PatientInfoForm: React.FC<PatientInfoFormProps> = ({
     });
   };
 
-  const colorClass = variant === 'copd' ? 'text-orange-600' : 'text-blue-600';
-  const focusClass = variant === 'copd' ? 'focus:ring-orange-500' : 'focus:ring-blue-500';
+  const getColorClass = () => {
+    switch (variant) {
+      case 'copd': return 'text-orange-600';
+      case 'smoking': return 'text-amber-600';
+      case 'bronchiectasis': return 'text-emerald-600';
+      default: return 'text-blue-600';
+    }
+  };
+  
+  const getFocusClass = () => {
+    switch (variant) {
+      case 'copd': return 'focus:ring-orange-500';
+      case 'smoking': return 'focus:ring-amber-500';
+      case 'bronchiectasis': return 'focus:ring-emerald-500';
+      default: return 'focus:ring-blue-500';
+    }
+  };
+  
+  const colorClass = getColorClass();
+  const focusClass = getFocusClass();
 
   return (
     <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
